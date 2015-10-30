@@ -52,7 +52,7 @@ class FriendsController extends Controller
         if ($friend) {
             Friend::create(['user_id' => $user->id, 'friend_user_id' => $friend->id]);
             flash('添加成功', '');
-            return redirect('friends.list');
+            return redirect('/');
         }else{
             flash('添加失败', '');
             return redirect('/');
