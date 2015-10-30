@@ -13,5 +13,10 @@ class Friend extends Model
      *
      * @var array
      */
-    protected $fillable = ['phone'];
+    protected $fillable = ['user_id', 'friend_user_id'];
+
+    public function friendProfile()
+    {
+        return $this->hasOne('App\Profile' , 'user_id', 'friend_user_id');
+    }
 }

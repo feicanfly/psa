@@ -48,12 +48,31 @@ class FriendsController extends Controller
     {
         $user = Auth::user();
         $friend = User::where('phone', '=', $request['phone'])->first();
+        //print_r($user->id);exit;
         if ($friend) {
-            Friend::create(array(''));
-            return '添加成功';
+            Friend::create(['user_id' => $user->id, 'friend_user_id' => $friend->id]);
+            flash('添加成功', '');
+            return redirect('friends.list');
         }else{
-            return 'no user';
+            flash('添加失败', '');
+            return redirect('/');
         }
+    }
+
+    /**
+     * friend list
+     *
+     * @param  
+     * @return 
+     */
+    public function lists()
+    {
+        $friendList = Friend::where('user_id', Auth::user()->id)
+                        ->orderBy('id', 'desc')
+                        ->take(10)
+                        ->get();
+
+        return view('friends.list', array('friendList' => $friendList));
     }
 
     /**

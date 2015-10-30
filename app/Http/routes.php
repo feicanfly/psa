@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('pages.home');
-});
+Route::get('/', 'FriendsController@lists');
 Route::get('/friends/find', 'FriendsController@find');
 Route::post('/friends/add', 'FriendsController@add');
 Route::resource('friends', 'FriendsController');

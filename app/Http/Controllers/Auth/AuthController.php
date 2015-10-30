@@ -73,10 +73,11 @@ class AuthController extends Controller
 
         $profile_data = $request->all();
         $profile_data['user_id'] = $user->id;
-        print_r($profile_data);
         Profile::create($profile_data);
 
-        //return redirect($this->redirectPath());
+        return redirect($this->redirectPath());
     }
+
+
 
 }

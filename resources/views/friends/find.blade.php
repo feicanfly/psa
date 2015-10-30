@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<h1>查找好友</h1>
+<h1>添加好友</h1>
 
 <form method="POST" action="add">
 	{{ csrf_field() }}
@@ -11,7 +11,7 @@
 	</div>
 
 	<div class="form-group">
-		<button type="submit" class="btn btn-default">查找</button>
+		<button type="submit" class="btn btn-default">添加</button>
 	<div>
 
 	@if(count($errors) > 0)

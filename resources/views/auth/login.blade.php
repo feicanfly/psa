@@ -23,6 +23,7 @@
 
 	    <div class="form-group">
 	        <button type="submit" class="btn btn-default">登陆</button>
+	       <a href="/auth/register" class="btn btn-default">注册</a>
 	    </div>
 
 	    @include('errors')
