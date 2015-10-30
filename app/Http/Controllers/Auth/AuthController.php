@@ -3,23 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Profile;
 use Validator;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Registration & Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles the registration of new users, as well as the
-    | authentication of existing users. By default, this controller uses
-    | a simple trait to add these behaviors. Why don't you explore it?
-    |
-    */
+
+    protected $redirectPath = '/';
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -43,8 +38,8 @@ class AuthController extends Controller
     {
         return Validator::make($data, [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|confirmed|min:6',
+            'phone' => 'required|max:20|unique:users',
+            'password' => 'required|min:3',
         ]);
     }
 
@@ -58,8 +53,30 @@ class AuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'email' => $data['email'],
+            'phone' => $data['phone'],
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function postRegister(Request $request)
+    {
+        $validator = $this->validator($request->all());
+
+        if ($validator->fails()) {
+            $this->throwValidationException(
+                $request, $validator
+            );
+        }
+
+        $user = $this->create($request->all());
+        Auth::login($user);
+
+        $profile_data = $request->all();
+        $profile_data['user_id'] = $user->id;
+        print_r($profile_data);
+        Profile::create($profile_data);
+
+        //return redirect($this->redirectPath());
+    }
+
 }

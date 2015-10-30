@@ -14,8 +14,14 @@
 $factory->define(App\User::class, function (Faker\Generator $faker) {
     return [
         'name' => $faker->name,
-        'email' => $faker->email,
+        'phone' => $faker->PhoneNumber,
         'password' => bcrypt(str_random(10)),
         'remember_token' => str_random(10),
+    ];
+});
+
+$factory->define(App\Friend::class, function (Faker\Generator $faker) {
+    return [
+        'phone' => $faker->PhoneNumber,
     ];
 });
