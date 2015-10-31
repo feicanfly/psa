@@ -13,11 +13,8 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
-
     protected $redirectPath = '/friends/find';
-
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
-
     /**
      * Create a new authentication controller instance.
      *
