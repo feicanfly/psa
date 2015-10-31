@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'FriendsController@lists');
+Route::get('/home', 'FriendsController@lists');
 Route::get('/friends/find', 'FriendsController@find');
 Route::get('/friends/all', 'FriendsController@all');
 Route::get('/friends/around', 'FriendsController@around');
