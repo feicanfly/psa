@@ -12,40 +12,64 @@
       </div>
 
       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=l5aPgKDLaoWS7GOBTrCwPp8y"></script>
+
       <script>
-        // if (window.navigator.geolocation) {
-        //      var options = {
-        //          enableHighAccuracy: true,
-        //      };
-        //      window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
-        //  } else {
-        //      alert("浏览器不支持html5来获取地理位置信息");
-        //  }
+              var map = new BMap.Map("allmap");
+              var lng = 116.28702 + (Math.floor(Math.random()*50)  * 0.01);
+              var lat = 39.917478 + (Math.floor(Math.random()*50)  * 0.01);
+              var point = new BMap.Point(lng, lat);
+              map.centerAndZoom(point, 10);
+
+              function addMarker(point, myIcon, name){
+                  var marker = new BMap.Marker(point,{icon:myIcon});
+                  map.addOverlay(marker);
+
+                  var opts = {
+                  width : 20,     // 信息窗口宽度
+                  height: 10,     // 信息窗口高度
+                  title : name , // 信息窗口标题
+                  enableMessage:false,//设置允许信息窗发送短息
+                  message:''
+                }
+                var infoWindow = new BMap.InfoWindow('', opts);  // 创建信息窗口对象 
+                  marker.addEventListener("click", function(){          
+                  map.openInfoWindow(infoWindow,point); //开启信息窗口
+                });
+              }
+
+             @foreach ($friendList as $friend)
+                var lng = 116.28702 + (Math.floor(Math.random()*50)  * 0.01);
+                var lat = 39.917478 + (Math.floor(Math.random()*50)  * 0.01);
+                var point = new BMap.Point(lng, lat);
+                var myIcon = new BMap.Icon("{{ $friend->profile->avatar }}", new BMap.Size(50,50));
+                addMarker(point, myIcon, '{{ $friend->profile->name }}' );
+             @endforeach
+
+
+
+        if (window.navigator.geolocation) {
+             var options = {
+                 enableHighAccuracy: true,
+             };
+             window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
+         } else {
+             alert("浏览器不支持html5来获取地理位置信息");
+         }
          
-         //function handleSuccess(position){
-             // 获取到当前位置经纬度  本例中是chrome浏览器取到的是google地图中的经纬度
-             // var lng = position.coords.longitude;
-             // var lat = position.coords.latitude;
-             var lng = 116.28702 + (Math.floor(Math.random()*50)  * 0.01);
-             var lat = 39.917478 + (Math.floor(Math.random()*50)  * 0.01);
+         function handleSuccess(position){
+             var lng = position.coords.longitude;
+             var lat = position.coords.latitude;
+
              // 调用百度地图api显示
-             var map = new BMap.Map("allmap");
              var point = new BMap.Point(lng, lat);
              var marker = new BMap.Marker(point);  // 创建标注
-             map.addOverlay(marker); 
-             map.centerAndZoom(point, 15)
-
-         //}
+             map.addOverlay(marker);
+         }
 
 
          
          function handleError(error){
-                  // 百度地图API功能
-                  var map = new BMap.Map("allmap");    // 创建Map实例
-                  map.centerAndZoom(new BMap.Point(116.404, 39.915), 11);  // 初始化地图,设置中心点坐标和地图级别
-                  map.addControl(new BMap.MapTypeControl());   //添加地图类型控件
-                  map.setCurrentCity("北京");          // 设置地图显示的城市 此项是必须设置的
-                  map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+
          }
 </script>
 @stop
