@@ -72,7 +72,7 @@
 	     map.addOverlay(marker);
 
 	     //更新当前位置
-	     $.post("/user/updateLocation",{last_lng:lng,last_lat:lat,_token:'{{ csrf_token() }}'});
+	     $.post("/updateLocation",{last_lng:lng,last_lat:lat,_token:'{{ csrf_token() }}'});
 	 }
 	 
 	 function handleError(error){
