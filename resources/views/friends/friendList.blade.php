@@ -12,7 +12,7 @@
 			</div>
 
 			<div class="pull-left block">
-				<h4>{{ $friend->profile->name }}</h4>
+				<p class="name">{{ $friend->profile->name }}</p>
         		<p>{{ $friend->profile->phone }}</p>
 			</div>
 			

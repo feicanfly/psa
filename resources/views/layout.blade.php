@@ -23,10 +23,10 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">在线好友</a></li>
-            <li><a href="/friends/all">所有好友</a></li>
-            <li><a href="/friends/find">添加好友</a></li>
-            <li><a href="/friends/around">附近的人</a></li>
+            <li class="{{ Request::is( '/') ? 'active' : '' }}"><a href="/">在线好友</a></li>
+            <li class="{{ Request::is( 'friends/all') ? 'active' : '' }}"><a href="/friends/all">所有好友</a></li>
+            <li class="{{ Request::is( 'friends/find') ? 'active' : '' }}"><a href="/friends/find">添加好友</a></li>
+            <li class="{{ Request::is( 'friends/around') ? 'active' : '' }}"><a href="/friends/around">附近的人</a></li>
           </ul>
           @if (Auth::check())
               <p class="navbar-text navbar-right">
@@ -51,6 +51,15 @@
 	@yield('content')
 </div>
 
+<!-- footer -->
+<div class="row">
+<footer class="footer eye-protector-processed" style="transition: background 0.3s ease; background-color: rgb(245, 245, 245);">
+      <div class="container">
+        <p class="text-muted">© 2015 Wang Pengfei. .  <span style="margin-left:50px"></span>
+        </p>
+      </div>
+ </footer>
+</div>  
 <script type="text/javascript" src="/js/libs.js"></script>
 @include('flash')
 
