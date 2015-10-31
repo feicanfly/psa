@@ -71,9 +71,7 @@ class FriendsController extends Controller
     {
         $friendList = Friend::where('user_id', Auth::user()->id)
                         ->orderBy('id', 'desc')
-                        ->take(10)
-                        ->get();
-
+                        ->find(10);
         return view('friends.list', array('friendList' => $friendList));
     }
 
@@ -105,7 +103,7 @@ class FriendsController extends Controller
                         ->take(10)
                         ->get();
 
-        flash('提示', '查找附近的人的同时其他人也可以看到你的位置！');
+        //flash('提示', '查找附近的人的同时其他人也可以看到你的位置！');
         return view('friends.around', array('friendList' => $friendList));
     }
 

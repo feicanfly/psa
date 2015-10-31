@@ -2,11 +2,12 @@
 <html>
 <head>
   
-  
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>遇见</title>
   <link rel="stylesheet" type="text/css" href="/css/app.css">
 	<link rel="stylesheet" type="text/css" href="/css/libs.css">
+  <link rel="apple-touch-icon" href="/image/logo.png" />
+  <link rel="icon" href="/image/logo.png" type=" image/png" >
 </head>
 <body>
 
@@ -26,7 +27,7 @@
             <li class="{{ Request::is( '/') ? 'active' : '' }}"><a href="/">在线好友</a></li>
             <li class="{{ Request::is( 'friends/all') ? 'active' : '' }}"><a href="/friends/all">所有好友</a></li>
             <li class="{{ Request::is( 'friends/find') ? 'active' : '' }}"><a href="/friends/find">添加好友</a></li>
-            <li class="{{ Request::is( 'friends/around') ? 'active' : '' }}"><a href="/friends/around">附近的人</a></li>
+            <li class="{{ Request::is( 'friends/around') ? 'active' : '' }}"><a href="/friends/around">附近的车</a></li>
           </ul>
           @if (Auth::check())
               <p class="navbar-text navbar-right">

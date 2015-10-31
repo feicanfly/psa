@@ -4,7 +4,7 @@
 
       <div class="row">
       		<div class="col-md-3 user-list">
-                        <p class="tab-1 row">在线好友</p>
+                        <p class="tab-1 row">附近的车</p>
                         @include('friends.friendList')
       		</div>
       		<div class="col-md-9" id="allmap">

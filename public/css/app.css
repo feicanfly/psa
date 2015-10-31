@@ -5760,6 +5760,13 @@ body {
 #allmap {
   height: 485px; }
 
+a {
+  color: #ffffff; }
+  a:hover {
+    color: #ffffff; }
+  a, a:focus {
+    color: #ffffff; }
+
 .tab-1 {
   display: block;
   padding: 15px 20px;

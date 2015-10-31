@@ -9,6 +9,16 @@ body {
 	height:485px;
 }
 
+a {
+    color: #ffffff;
+
+      &:hover{
+        color: #ffffff;
+      },
+      &:focus {
+        color: #ffffff;
+      }
+}
 .tab-1 {
     display: block;
     padding: 15px 20px;
