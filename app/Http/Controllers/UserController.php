@@ -33,14 +33,18 @@ class UserController extends Controller
         }
 
         User::where('id', '=', Auth::user()->id)->update($userData);
-
         $profileData = $request['profile'];
         $profileData['name'] = $request['user']['name'];
 
         Profile::where('user_id', '=', Auth::user()->id)->update($profileData);
         flash('修改成功', '');
         return redirect('/setting');
-        
     }
 
+    public function updateLocation(Requests\SettingRequest $request) {
+        $location['last_lng'] = $request->last_lng;
+        $location['last_lat'] = $request->last_lat;
+        Profile::where('user_id', '=', Auth::user()->id)->update($location);
+        return 'success';
+    }
 }

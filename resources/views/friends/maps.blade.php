@@ -61,7 +61,7 @@
 	 } else {
 	     alert("浏览器不支持html5来获取地理位置信息");
 	 }
-	 
+
 	 function handleSuccess(position){
 	     var lng = position.coords.longitude;
 	     var lat = position.coords.latitude;
@@ -70,11 +70,14 @@
 	     var point = new BMap.Point(lng, lat);
 	     var marker = new BMap.Marker(point);  // 创建标注
 	     map.addOverlay(marker);
+
+	     //更新当前位置
+	     $.post("/user/updateLocation",{last_lng:lng,last_lat:lat,_token:'{{ csrf_token() }}'});
 	 }
 	 
 	 function handleError(error){
-
 	 }
+	 
 	 //获取当前位置结束
 
 	 //点击列表

@@ -22,6 +22,8 @@ Route::resource('friends', 'FriendsController');
 Route::get('/setting/', 'userController@getSetting');
 Route::post('/setting/', 'userController@postSetting');
 
+Route::post('/updateLocation/', 'userController@updateLocation');
+
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
