@@ -72,6 +72,6 @@
 
         @include('errors')
     </form>
-    <div>
-<div>
+    </div>
+</div>
 @stop
