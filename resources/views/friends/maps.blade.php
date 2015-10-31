@@ -71,6 +71,7 @@
 	     var marker = new BMap.Marker(point);  // 创建标注
 	     map.addOverlay(marker);
 
+	     alert(lng);
 	     //更新当前位置
 	     $.post("/updateLocation",{last_lng:lng,last_lat:lat,_token:'{{ csrf_token() }}'});
 	 }

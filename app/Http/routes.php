@@ -19,10 +19,10 @@ Route::get('/friends/around', 'FriendsController@around');
 Route::post('/friends/add', 'FriendsController@add');
 Route::resource('friends', 'FriendsController');
 
-Route::get('/setting/', 'userController@getSetting');
-Route::post('/setting/', 'userController@postSetting');
+Route::get('/setting/', 'UserController@getSetting');
+Route::post('/setting/', 'UserController@postSetting');
 
-Route::post('/updateLocation/', 'userController@updateLocation');
+Route::post('/updateLocation/', 'UserController@updateLocation');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');
