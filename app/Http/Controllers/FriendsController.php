@@ -48,9 +48,9 @@ class FriendsController extends Controller
     {
         $user = Auth::user();
         $friend = User::where('phone', '=', $request['phone'])->first();
-        //print_r($user->id);exit;
+        
         if ($friend) {
-            Friend::create(['user_id' => $user->id, 'friend_user_id' => $friend->id]);
+            Friend::firstOrNew(['user_id' => $user->id, 'friend_user_id' => $friend->id]);
             flash('添加成功', '');
             return redirect('/');
         }else{
@@ -60,7 +60,7 @@ class FriendsController extends Controller
     }
 
     /**
-     * friend list
+     * 当前在线好友
      *
      * @param  
      * @return 
@@ -74,6 +74,40 @@ class FriendsController extends Controller
 
         return view('friends.list', array('friendList' => $friendList));
     }
+
+    /**
+     * 我的所有好友
+     *
+     * @param  
+     * @return 
+     */
+    public function all()
+    {
+        $friendList = Friend::where('user_id', Auth::user()->id)
+                        ->orderBy('id', 'desc')
+                        ->take(10)
+                        ->get();
+
+        return view('friends.all', array('friendList' => $friendList));
+    }
+   
+    /**
+     *附近在线的人 
+     *
+     * @param  
+     * @return 
+     */
+    public function around()
+    {
+        $friendList = Friend::where('user_id', Auth::user()->id)
+                        ->orderBy('id', 'desc')
+                        ->take(10)
+                        ->get();
+
+        flash('提示', '查找附近的人的同时其他人也可以看到你的位置！');
+        return view('friends.list', array('friendList' => $friendList));
+    }
+
 
     /**
      * Display the specified resource.

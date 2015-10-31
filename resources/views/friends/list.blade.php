@@ -4,14 +4,8 @@
 
       <div class="row">
       		<div class="col-md-3">
-                        <ul>
-                              @foreach ($friendList as $friend)
-                              <li>
-      				  <h4>{{ $friend->friendProfile->name }}</h4>
-                                <p>{{ $friend->friendProfile->phone }}</p>
-                              </li>
-                              @endforeach
-                        </ul>
+                        <p class="tab-1 row">在线好友</p>
+                        @include('friends.friendList')
       		</div>
       		<div class="col-md-9" id="allmap">
       		</div>

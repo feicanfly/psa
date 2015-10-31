@@ -13,9 +13,13 @@
 
 Route::get('/', 'FriendsController@lists');
 Route::get('/friends/find', 'FriendsController@find');
+Route::get('/friends/all', 'FriendsController@all');
+Route::get('/friends/around', 'FriendsController@around');
 Route::post('/friends/add', 'FriendsController@add');
 Route::resource('friends', 'FriendsController');
 
+Route::get('/setting/', 'userController@getSetting');
+Route::post('/setting/', 'userController@postSetting');
 
 // Authentication routes...
 Route::get('auth/login', 'Auth\AuthController@getLogin');

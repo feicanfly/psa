@@ -2,8 +2,47 @@
 
 body {
 	padding-top:78px;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
 #allmap {
 	height:480px;
 }
+
+.tab-1 {
+    display: block;
+    padding: 15px 20px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    background-color: #0275d8;
+}
+
+.list-style-1 {
+	display: block;
+    padding: 1em;
+    color: #fff;
+    background-color: #6f5499;
+    outline: 0;
+}
+
+.list-style-1 li{
+	border-bottom:1px solid #d5d5d5;
+	font-size:11px;
+	line-height:15px;
+	overflow:hidden;
+	height: 60px;
+	margin: 5px;
+	list-style: none;
+}
+
+.avatar {
+	height: 65px;
+	width: 65px;
+}
+
+.avatar img {
+	width: 60px;
+}
+

@@ -23,18 +23,24 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/">所有好友</a></li>
+            <li class="active"><a href="/">在线好友</a></li>
+            <li><a href="/friends/all">所有好友</a></li>
             <li><a href="/friends/find">添加好友</a></li>
+            <li><a href="/friends/around">附近的人</a></li>
           </ul>
           @if (Auth::check())
-
               <p class="navbar-text navbar-right">
                     <a href="/auth/logout">退出</a>
+              </p>
+              
+              <p class="navbar-text navbar-right">
+                    <a href="/setting">设置</a>
               </p>
 
               <p class="navbar-text navbar-right">
                     欢迎，{{ Auth::user()->name }}
               </p>
+
               
             @endif
         </div><!--/.nav-collapse -->

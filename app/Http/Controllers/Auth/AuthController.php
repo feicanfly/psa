@@ -60,7 +60,7 @@ class AuthController extends Controller
 
     public function postRegister(Request $request)
     {
-        $validator = $this->validator($request->all());
+        $validator = $this->validator($request['user']);
 
         if ($validator->fails()) {
             $this->throwValidationException(
@@ -68,11 +68,12 @@ class AuthController extends Controller
             );
         }
 
-        $user = $this->create($request->all());
+        $user = $this->create($request['user']);
         Auth::login($user);
 
         $profile_data = $request->all();
         $profile_data['user_id'] = $user->id;
+        $profile_data['avatar'] = $request['profile']['avatar'];
         Profile::create($profile_data);
 
         return redirect($this->redirectPath());

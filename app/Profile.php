@@ -8,5 +8,5 @@ class Profile extends Model
 {
     protected $table = 'Profile';
 
-    protected $fillable = ['name','user_id','phone','phone','phone','phone','address'];
+    protected $fillable = ['name','user_id','avatar','gender','age','address'];
 }
