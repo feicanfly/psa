@@ -13,20 +13,21 @@
 
       <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=l5aPgKDLaoWS7GOBTrCwPp8y"></script>
       <script>
-      if (window.navigator.geolocation) {
-             var options = {
-                 enableHighAccuracy: true,
-             };
-             window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
-         } else {
-             alert("浏览器不支持html5来获取地理位置信息");
-         }
+        // if (window.navigator.geolocation) {
+        //      var options = {
+        //          enableHighAccuracy: true,
+        //      };
+        //      window.navigator.geolocation.getCurrentPosition(handleSuccess, handleError, options);
+        //  } else {
+        //      alert("浏览器不支持html5来获取地理位置信息");
+        //  }
          
-         function handleSuccess(position){
+         //function handleSuccess(position){
              // 获取到当前位置经纬度  本例中是chrome浏览器取到的是google地图中的经纬度
-             var lng = position.coords.longitude;
-             var lat = position.coords.latitude;
-             alert(lng);
+             // var lng = position.coords.longitude;
+             // var lat = position.coords.latitude;
+             var lng = 116.28702 + (Math.floor(Math.random()*50)  * 0.01);
+             var lat = 39.917478 + (Math.floor(Math.random()*50)  * 0.01);
              // 调用百度地图api显示
              var map = new BMap.Map("allmap");
              var point = new BMap.Point(lng, lat);
@@ -34,7 +35,9 @@
              map.addOverlay(marker); 
              map.centerAndZoom(point, 15)
 
-         }
+         //}
+
+
          
          function handleError(error){
                   // 百度地图API功能

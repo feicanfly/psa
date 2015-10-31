@@ -5785,11 +5785,12 @@ body {
   margin: 5px;
   list-style: none; }
 
-.avatar {
+.list-style-1 .avatar {
   height: 65px;
-  width: 65px; }
+  width: 65px;
+  margin-right: 10px; }
 
-.avatar img {
+.list-style-1 .avatar img {
   width: 60px; }
 
 /*# sourceMappingURL=app.css.map */

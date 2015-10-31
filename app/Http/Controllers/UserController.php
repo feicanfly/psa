@@ -33,7 +33,11 @@ class UserController extends Controller
         }
 
         User::where('id', '=', Auth::user()->id)->update($userData);
-        Profile::where('user_id', '=', Auth::user()->id)->update($request['profile']);
+
+        $profileData = $request['profile'];
+        $profileData['name'] = $request['user']['name'];
+
+        Profile::where('user_id', '=', Auth::user()->id)->update($profileData);
         flash('修改成功', '');
         return redirect('/setting');
         

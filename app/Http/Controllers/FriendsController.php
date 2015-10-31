@@ -50,7 +50,9 @@ class FriendsController extends Controller
         $friend = User::where('phone', '=', $request['phone'])->first();
         
         if ($friend) {
-            Friend::firstOrNew(['user_id' => $user->id, 'friend_user_id' => $friend->id]);
+            Friend::firstOrCreate(['user_id' => $user->id, 'friend_user_id' => $friend->id]);
+            Friend::firstOrCreate(['user_id' => $friend->id, 'friend_user_id' => $user->id] );
+
             flash('添加成功', '');
             return redirect('/');
         }else{
@@ -99,15 +101,13 @@ class FriendsController extends Controller
      */
     public function around()
     {
-        $friendList = Friend::where('user_id', Auth::user()->id)
-                        ->orderBy('id', 'desc')
+        $friendList = User::orderBy('id', 'desc')
                         ->take(10)
                         ->get();
 
         flash('提示', '查找附近的人的同时其他人也可以看到你的位置！');
-        return view('friends.list', array('friendList' => $friendList));
+        return view('friends.around', array('friendList' => $friendList));
     }
-
 
     /**
      * Display the specified resource.

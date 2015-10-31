@@ -2,12 +2,18 @@
       @foreach ($friendList as $friend)
       <li>
 			<div class="pull-left block avatar">
-				<img src="{{ $friend->friendProfile->avatar or '/image/avatar.jpg'}}">
+				<img src="
+					<?php if (! empty($friend->profile->avatar)): ?>
+						{{ $friend->profile->avatar }}
+					<?php else: ?>
+						/image/avatar.jpg
+					<?php endif ?>
+				">
 			</div>
 
 			<div class="pull-left block">
-				<h4>{{ $friend->friendProfile->name }}</h4>
-        		<p>{{ $friend->friendProfile->phone }}</p>
+				<h4>{{ $friend->profile->name }}</h4>
+        		<p>{{ $friend->profile->phone }}</p>
 			</div>
 			
       </li>

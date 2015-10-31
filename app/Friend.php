@@ -15,7 +15,7 @@ class Friend extends Model
      */
     protected $fillable = ['user_id', 'friend_user_id'];
 
-    public function friendProfile()
+    public function profile()
     {
         return $this->hasOne('App\Profile' , 'user_id', 'friend_user_id');
     }
