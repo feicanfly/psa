@@ -15,7 +15,7 @@ elixir(function(mix) {
     mix.sass('app.scss')
     	.scripts([
     			'libs/sweetalert-dev.js',
-    			'libs/jquery.js'
+    			'libs/jquery-2.1.4.js'
     		], './public/js/libs.js')
     	.styles([
     			'libs/sweetalert.css'

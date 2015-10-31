@@ -22,19 +22,7 @@
             <input type="password" name="user[password]" id="password" class="form-control" >
         </div>
 
-        <div class="form-group">
-            <lable for="address">车标</lable>
-            <div class="">
-                <label for="citroen"><img src="/image/citroen-logo.png"></label>
-                <input type="radio" name="profile[avatar]" id="citroen" value='/image/citroen-logo.png'>
-
-                <label for="ds"><img src="/image/logo-ds-bl.png"></label>
-                <input type="radio" name="profile[avatar]" id="ds" value='/image/logo-ds-bl.png'>
-                
-                <label for="peugeot"><img src="/image/peugeot-logo.png"></label>
-                <input type="radio" name="profile[avatar]" id="peugeot" value='/image/peugeot-logo.png'>
-            </div>
-        </div>
+        @include('auth.plate')
 
         <div class="form-group">
             <button type="submit" class="btn btn-default">注册</button>

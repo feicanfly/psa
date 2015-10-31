@@ -41,25 +41,28 @@
         <div class="form-group">
             <lable for="address">车标</lable>
             <div class="">
-                <label for="citroen"><img src="/image/citroen-logo.png"></label>
+
                 <input type="radio" name="profile[avatar]" id="citroen" value='/image/citroen-logo.png' 
-                    <?php if ($profile['gender'] == '/image/citroen-logo.png'): ?>
+                    <?php if ($profile['avatar'] == '/image/citroen-logo.png'): ?>
+                        checked="checked"
+                    <?php endif ?>
+                >
+                <label for="citroen"><img src="/image/citroen-logo.png"></label>
+                
+                <input type="radio" name="profile[avatar]" id="ds" value='/image/logo-ds-bl.png' 
+                    <?php if ($profile['avatar'] == '/image/logo-ds-bl.png'): ?>
                         checked="checked"
                     <?php endif ?>
                 >
                 <label for="ds"><img src="/image/logo-ds-bl.png"></label>
-                <input type="radio" name="profile[avatar]" id="ds" value='/image/logo-ds-bl.png' 
-                    <?php if ($profile['gender'] == '/image/logo-ds-bl.png'): ?>
-                        checked="checked"
-                    <?php endif ?>
-                >
-
-                <label for="peugeot"><img src="/image/peugeot-logo.png"></label>
+                
                 <input type="radio" name="profile[avatar]" id="peugeot" value='/image/peugeot-logo.png'
-                    <?php if ($profile['gender'] == '/image/peugeot-logo.png'): ?>
+                    <?php if ($profile['avatar'] == '/image/peugeot-logo.png'): ?>
                         checked="checked"
                     <?php endif ?>
                 >
+                <label for="peugeot"><img src="/image/peugeot-logo.png"></label>
+                
             </div>
         </div>
 

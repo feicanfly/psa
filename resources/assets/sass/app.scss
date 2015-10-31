@@ -43,6 +43,7 @@ a {
 	height: 60px;
 	margin: 5px;
 	list-style: none;
+    cursor: pointer;
 }
 
 .list-style-1 .avatar {
@@ -74,6 +75,10 @@ a {
     height: 495px;
     overflow: scroll;
     overflow-x: hidden;
+}
+
+#notice-add-friend {
+    display: none;
 }
 
 

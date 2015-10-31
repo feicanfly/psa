@@ -21,7 +21,10 @@ class CreateProfileTable extends Migration
             $table->string('gender');
             $table->string('age');
             $table->string('address');
+            $table->string('last_lng');
+            $table->string('last_lat');
             $table->timestamps();
+            
         });
     }
 

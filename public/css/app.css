@@ -5788,7 +5788,8 @@ a {
   overflow: hidden;
   height: 60px;
   margin: 5px;
-  list-style: none; }
+  list-style: none;
+  cursor: pointer; }
 
 .list-style-1 .avatar {
   height: 65px;
@@ -5815,5 +5816,8 @@ a {
   height: 495px;
   overflow: scroll;
   overflow-x: hidden; }
+
+#notice-add-friend {
+  display: none; }
 
 /*# sourceMappingURL=app.css.map */

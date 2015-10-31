@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="/css/libs.css">
   <link rel="apple-touch-icon" href="/image/logo.png" />
   <link rel="icon" href="/image/logo.png" type=" image/png" >
+  <script type="text/javascript" src="/js/libs.js"></script>
 </head>
 <body>
 
@@ -61,7 +62,7 @@
       </div>
  </footer>
 </div>  
-<script type="text/javascript" src="/js/libs.js"></script>
+
 @include('flash')
 
 </body>
