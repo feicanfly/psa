@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 use Auth;
 use App\User;
-use App\friend;
+use App\Friend;
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
